@@ -1,18 +1,18 @@
 package com.example.parentandchildtask.interface1;
 
 
-import com.example.parentandchildtask.entity.Child;
+import com.example.parentandchildtask.entity.ChildEntity;
 
 import java.util.List;
 
 public interface ChildInterface {
-    List<Child> getAllChild();
+    List<ChildEntity> getAllChild();
 
-    Child getChildById(int id);
+    ChildEntity getChildById(int id);
 
-    Child creatChild(Child child);
+    ChildEntity creatChild(ChildEntity child);
 
-    Child delete (int id);
+    ChildEntity delete (int id);
 
-    Child updateById(Child child, int id);
+    ChildEntity updateById(ChildEntity child, int id);
 }

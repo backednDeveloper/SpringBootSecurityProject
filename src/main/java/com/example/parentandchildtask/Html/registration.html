@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Register</title>
+</head>
+<body>
+<form action="#" th:action="@{/register}" th:object="${parentEntity}" method="post">
+    <table>
+        <tr>
+            <td><label for="name">First Name</label></td>
+            <td><input th:field="*{name}" type="text" id="name" name="name" /></td>
+        </tr>
+        <tr>
+            <td><label for="surname">Last Name</label></td>
+            <td><input th:field="*{surname}" type="text" id="surname" name="surname" /></td>
+        </tr>
+        <tr>
+            <td><label for="email_id">Email</label></td>
+            <td><input th:field="*{email_id}" type="text" id="email_id" name="email_id" /></td>
+        </tr>
+        <tr>
+            <td colspan="2"><input type="submit" value="Submit" /></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
+

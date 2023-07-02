@@ -1,6 +1,6 @@
 package com.example.parentandchildtask.controller;
 
-import com.example.parentandchildtask.entity.Child;
+import com.example.parentandchildtask.entity.ChildEntity;
 import com.example.parentandchildtask.interface1.ChildInterface;
 import com.example.parentandchildtask.servise.ChildServise;
 import lombok.RequiredArgsConstructor;
@@ -16,31 +16,31 @@ public class ChildController implements ChildInterface {
 
     @GetMapping()
     @Override
-    public List<Child> getAllChild() {
+    public List<ChildEntity> getAllChild() {
         return servise.getAllChild();
     }
 
     @GetMapping("/{id}")
     @Override
-    public Child getChildById(@PathVariable int id) {
+    public ChildEntity getChildById(@PathVariable int id) {
         return servise.getChildById(id);
     }
 
     @PostMapping()
     @Override
-    public Child creatChild(@RequestBody Child child) {
+    public ChildEntity creatChild(@RequestBody ChildEntity child) {
         return servise.creatChild(child);
     }
 
     @DeleteMapping("/{id}")
     @Override
-    public Child delete(@PathVariable int id) {
+    public ChildEntity delete(@PathVariable int id) {
         return servise.delete(id);
     }
 
     @PutMapping()
     @Override
-    public Child updateById(@RequestBody Child child,@PathVariable int id) {
+    public ChildEntity updateById(@RequestBody ChildEntity child, @PathVariable int id) {
         return servise.updateById(child, id);
     }
 }
