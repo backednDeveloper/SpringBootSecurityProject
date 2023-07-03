@@ -3,12 +3,12 @@ package com.example.parentandchildtask.repository;
 import com.example.parentandchildtask.entity.ParentEntity;
 import com.example.parentandchildtask.interface1.ParentInterface;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.repository.CrudRepository;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 @RequiredArgsConstructor
@@ -16,11 +16,12 @@ public class ParentRepository implements ParentInterface {
     private final JdbcTemplate jdbcTemplate;
     private final RowMapper<ParentEntity> rowMapper = (rs, rowNum) -> (
             new ParentEntity(
-                    rs.getInt(1),
+                    rs.getLong(1),
                     rs.getString(2),
                     rs.getString(3),
                     rs.getDate(4),
-                    rs.getInt(5)
+                    rs.getString(5),
+                    rs.getString(6)
             ));
 
     @Override
@@ -44,7 +45,7 @@ public class ParentRepository implements ParentInterface {
     }
 
     @Override
-    public ParentEntity delete (int id) {
+    public ParentEntity delete(int id) {
         String sql = "Delete from Parent Where id=?";
         jdbcTemplate.update(sql, id);
         return null;
@@ -56,4 +57,71 @@ public class ParentRepository implements ParentInterface {
         jdbcTemplate.update(sql, parent.getBirth_date(), parent.getName(), parent.getSurname());
         return parent;
     }
+
+//    @Override
+//    public ParentEntity findByEmailIdIgnoreCase(String email_id) {
+//        String sql = "Select * from Parent WHERE email_id=?";
+//        return jdbcTemplate.queryForObject(sql, new Object[]{email_id}, rowMapper);
+//    }
+
+
+//    @Override
+//    public <S extends ParentEntity> S save(S entity) {
+//        return null;
+//    }
+//
+//    @Override
+//    public <S extends ParentEntity> Iterable<S> saveAll(Iterable<S> entities) {
+//        return null;
+//    }
+//
+//    @Override
+//    public Optional<ParentEntity> findById(String s) {
+//        return Optional.empty();
+//    }
+//
+//    @Override
+//    public boolean existsById(String s) {
+//        return false;
+//    }
+//
+//    @Override
+//    public Iterable<ParentEntity> findAll() {
+//        return null;
+//    }
+//
+//    @Override
+//    public Iterable<ParentEntity> findAllById(Iterable<String> strings) {
+//        return null;
+//    }
+//
+//    @Override
+//    public long count() {
+//        return 0;
+//    }
+//
+//    @Override
+//    public void deleteById(String s) {
+//
+//    }
+//
+//    @Override
+//    public void delete(ParentEntity entity) {
+//
+//    }
+//
+//    @Override
+//    public void deleteAllById(Iterable<? extends String> strings) {
+//
+//    }
+//
+//    @Override
+//    public void deleteAll(Iterable<? extends ParentEntity> entities) {
+//
+//    }
+//
+//    @Override
+//    public void deleteAll() {
+//
+//    }
 }

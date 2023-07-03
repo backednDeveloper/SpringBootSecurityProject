@@ -54,18 +54,18 @@ public class ParentController implements ParentInterface {
         return servise.updateById(parent, id);
     }
 
-    @PostMapping("/resigtration")
-    public ModelAndView registerUser(@RequestBody ModelAndView modelAndView, @RequestBody ParentEntity parentEntity) {
-        return servise.registerUser(modelAndView, parentEntity);
-    }
+//    @PostMapping("/resigtration")
+//    public ModelAndView registerUser(@RequestBody ModelAndView modelAndView, @RequestBody ParentEntity parentEntity) {
+//        return servise.registerUser(modelAndView, parentEntity);
+//    }
+//
+//    @PostMapping("/confirm")
+//    public ModelAndView confirmUserAccount(@RequestBody ModelAndView modelAndView, @RequestBody String confirmationToken) {
+//        return servise.confirmUserAccount(modelAndView, confirmationToken);
+//    }
 
-    @PostMapping("/confirm")
-    public ModelAndView confirmUserAccount(@RequestBody ModelAndView modelAndView, @RequestBody String confirmationToken) {
-        return servise.confirmUserAccount(modelAndView, confirmationToken);
-    }
-
-    @PostMapping("/displayRegistration")
-    public ModelAndView displayRegistration(ModelAndView modelAndView, ParentEntity userEntity) {
-        return servise.displayRegistration(modelAndView, userEntity);
-    }
+//    @PostMapping("/displayRegistration")
+//    public ModelAndView displayRegistration(ModelAndView modelAndView, ParentEntity userEntity) {
+//        return servise.displayRegistration(modelAndView, userEntity);
+//    }
 }

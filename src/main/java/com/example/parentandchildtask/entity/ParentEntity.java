@@ -17,15 +17,17 @@ import java.util.Date;
 public class ParentEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private int id;
+    private Long id;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")
     private String surname;
     @Column(name = "birth_date")
     private Date birth_date;
+    @Column(name = "email")
+    private String email;
     @Column(name = "email_id")
-    private int email_id;
+    private String email_id;
 
     public void setEnabled(boolean enabled) {
         if (enabled) {
