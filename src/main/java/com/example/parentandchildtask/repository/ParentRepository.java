@@ -14,6 +14,7 @@ import java.util.Optional;
 @RequiredArgsConstructor
 public class ParentRepository implements ParentInterface {
     private final JdbcTemplate jdbcTemplate;
+    private final Parentrepository2 parentRepository;
     private final RowMapper<ParentEntity> rowMapper = (rs, rowNum) -> (
             new ParentEntity(
                     rs.getLong(1),
@@ -57,71 +58,4 @@ public class ParentRepository implements ParentInterface {
         jdbcTemplate.update(sql, parent.getBirth_date(), parent.getName(), parent.getSurname());
         return parent;
     }
-
-//    @Override
-//    public ParentEntity findByEmailIdIgnoreCase(String email_id) {
-//        String sql = "Select * from Parent WHERE email_id=?";
-//        return jdbcTemplate.queryForObject(sql, new Object[]{email_id}, rowMapper);
-//    }
-
-
-//    @Override
-//    public <S extends ParentEntity> S save(S entity) {
-//        return null;
-//    }
-//
-//    @Override
-//    public <S extends ParentEntity> Iterable<S> saveAll(Iterable<S> entities) {
-//        return null;
-//    }
-//
-//    @Override
-//    public Optional<ParentEntity> findById(String s) {
-//        return Optional.empty();
-//    }
-//
-//    @Override
-//    public boolean existsById(String s) {
-//        return false;
-//    }
-//
-//    @Override
-//    public Iterable<ParentEntity> findAll() {
-//        return null;
-//    }
-//
-//    @Override
-//    public Iterable<ParentEntity> findAllById(Iterable<String> strings) {
-//        return null;
-//    }
-//
-//    @Override
-//    public long count() {
-//        return 0;
-//    }
-//
-//    @Override
-//    public void deleteById(String s) {
-//
-//    }
-//
-//    @Override
-//    public void delete(ParentEntity entity) {
-//
-//    }
-//
-//    @Override
-//    public void deleteAllById(Iterable<? extends String> strings) {
-//
-//    }
-//
-//    @Override
-//    public void deleteAll(Iterable<? extends ParentEntity> entities) {
-//
-//    }
-//
-//    @Override
-//    public void deleteAll() {
-//
-//    }
 }

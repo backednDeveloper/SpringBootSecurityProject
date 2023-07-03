@@ -4,6 +4,7 @@ package com.example.parentandchildtask.controller;
 import com.example.parentandchildtask.entity.ParentEntity;
 import com.example.parentandchildtask.interface1.ParentInterface;
 import com.example.parentandchildtask.servise.ParentServise;
+import com.example.parentandchildtask.servise.ParentServive2;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.*;
@@ -18,6 +19,7 @@ import java.util.List;
 
 public class ParentController implements ParentInterface {
     private final ParentServise servise;
+    private final ParentServive2 servive2;
 
     @GetMapping
     @Override
@@ -54,18 +56,18 @@ public class ParentController implements ParentInterface {
         return servise.updateById(parent, id);
     }
 
-//    @PostMapping("/resigtration")
-//    public ModelAndView registerUser(@RequestBody ModelAndView modelAndView, @RequestBody ParentEntity parentEntity) {
-//        return servise.registerUser(modelAndView, parentEntity);
-//    }
-//
-//    @PostMapping("/confirm")
-//    public ModelAndView confirmUserAccount(@RequestBody ModelAndView modelAndView, @RequestBody String confirmationToken) {
-//        return servise.confirmUserAccount(modelAndView, confirmationToken);
-//    }
+    @PostMapping("/resigtration")
+    public ModelAndView registerUser(@RequestBody ModelAndView modelAndView, @RequestBody ParentEntity parentEntity) {
+        return servive2.registerUser(modelAndView, parentEntity);
+    }
 
-//    @PostMapping("/displayRegistration")
-//    public ModelAndView displayRegistration(ModelAndView modelAndView, ParentEntity userEntity) {
-//        return servise.displayRegistration(modelAndView, userEntity);
-//    }
+    @PostMapping("/confirm")
+    public ModelAndView confirmUserAccount(@RequestBody ModelAndView modelAndView, @RequestBody String confirmationToken) {
+        return servive2.confirmUserAccount(modelAndView, confirmationToken);
+    }
+
+    @PostMapping("/displayRegistration")
+    public ModelAndView displayRegistration(ModelAndView modelAndView, ParentEntity userEntity) {
+        return servive2.displayRegistration(modelAndView, userEntity);
+    }
 }

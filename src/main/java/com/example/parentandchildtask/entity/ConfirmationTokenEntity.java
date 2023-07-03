@@ -15,7 +15,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @Entity
 @Table(name = "ConfirmationToken")
-public class ConfirmationToken {
+public class ConfirmationTokenEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
@@ -29,7 +29,7 @@ public class ConfirmationToken {
     @JoinColumn(nullable = false , name = "id")
     private ParentEntity parent;
 
-    public ConfirmationToken(ParentEntity parent) {
+    public ConfirmationTokenEntity(ParentEntity parent) {
         this.parent = parent;
         createDate = new Date();
         confirmationToken = UUID.randomUUID().toString();
